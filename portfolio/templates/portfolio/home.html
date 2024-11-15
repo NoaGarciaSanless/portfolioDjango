@@ -22,6 +22,14 @@
     <div class="container mt-3">
       <h1>This is the portfolio Home page</h1>
 
+      {% load static %}
+      <img src="{% static 'portfolio/imgUser.png' %}" alt="User photo">
+      <br>
+      <a href="{% static 'portfolio/busca-ima-NoaGarcia.pdf' %}">Link to a PDF</a>
+
+      <br>
+      <br>
+
       {% for project in projects %} 
 
       <div class="p-3 border rounded">
