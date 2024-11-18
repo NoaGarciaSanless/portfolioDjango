@@ -12,3 +12,7 @@ class Blogs(models.Model):
     date = models.DateField(auto_now_add=True)
     
     description = models.TextField(max_length=500)
+    
+    
+    def __str__(self):
+        return self.title
