@@ -1,32 +1,45 @@
-    {% extends 'portfolio/base.html' %}
+{% extends 'portfolio/base.html' %} {% block content %}
+<div>
+  <h1 class="mt-3">This is the portfolio Home page</h1>
+  <br />
 
-    {% block content %}
-    <div>
-      <h1>This is the portfolio Home page</h1>
-      <br />
+  {% load static %}
+  <div class="d-flex justify-content-center">
+    <img
+      src="{% static 'portfolio/imgUser.png' %}"
+      alt="User photo"
+      class="img-fluid"
+    />
+  </div>
 
-      {% load static %}
-      <img src="{% static 'portfolio/imgUser.png' %}" alt="User photo" class="img-fluid"/>
-      <br />
-      <br />
+  <br />
+  <br />
 
-      <h2 class="mt-5">Portfolio</h2>
-      <br>
+  <h2 class="mt-5">Portfolio</h2>
+  <br />
 
-      {% for project in projects %}
+  {% for project in projects %}
 
-      <div class="p-3 border rounded">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-        <img src="{{ project.image.url }}" alt="{{ project.description }}" class="img-fluid mb-2" />
+  <div class="p-3 border rounded">
+    <h3>{{ project.title }}</h3>
 
-        {% if project.url %}
-        <br />
-        <a href="{{ project.url }}">Link</a>
-        {% endif %}
-      </div>
-
-      <br />
-      {% endfor %}
+    <div class="d-flex flex-sm-row flex-column mb-3 align-items-center">
+      <img
+        src="{{ project.image.url }}"
+        alt="{{ project.description }}"
+        class="img-fluid mb-2 mx-sm-3 flex-shrink-1 rounded"
+        style="max-width: 200px; max-height: 200px"
+      />
+      <p class="mx-sm-3 text-center text-sm-start">{{ project.description }}</p>
     </div>
-    {% endblock %}
+
+    {% if project.url %}
+    <br />
+    <a href="{{ project.url }}" class="m-3">Link</a>
+    {% endif %}
+  </div>
+
+  <br />
+  {% endfor %}
+</div>
+{% endblock %}
