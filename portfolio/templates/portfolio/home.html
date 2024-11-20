@@ -6,21 +6,19 @@
       <br />
 
       {% load static %}
-      <img src="{% static 'portfolio/imgUser.png' %}" alt="User photo" />
+      <img src="{% static 'portfolio/imgUser.png' %}" alt="User photo" class="img-fluid"/>
       <br />
-      <a href="{% static 'portfolio/busca-ima-NoaGarcia.pdf' %}"
-        >Link to a PDF</a
-      >
+      <br />
 
-      <br />
-      <br />
+      <h2 class="mt-5">Portfolio</h2>
+      <br>
 
       {% for project in projects %}
 
       <div class="p-3 border rounded">
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
-        <img src="{{ project.image.url }}" alt="{{ project.description }}" />
+        <img src="{{ project.image.url }}" alt="{{ project.description }}" class="img-fluid mb-2" />
 
         {% if project.url %}
         <br />

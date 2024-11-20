@@ -1,11 +1,11 @@
 {% extends 'portfolio/base.html' %} 
 {% block content%}
 <div class="container mt-3">
-  <h1>All blogs</h1>
+  <h1 id="blogtitle" class="font-weight-bold text-center">Blogs</h1>
   <br />
   <br />
 
-  <h3>There are {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
+  <h3 class="text-center mb-5">There are {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
   <br />
 
   {% for blog in blogs %}
